@@ -1,0 +1,30 @@
+<Project Sdk="MSTest.Sdk/3.6.4">
+
+    <PropertyGroup>
+        <OutputType>exe</OutputType>
+        <TestingPlatformShowTestsFailure>true</TestingPlatformShowTestsFailure>
+    </PropertyGroup>
+
+    <PropertyGroup Label="Параметры AOT компиляции">
+        <PublishAot>true</PublishAot>
+    </PropertyGroup>
+
+    <ItemGroup>
+        <ProjectReference Include="..\..\EmptyBox.Application.Services.Shared\EmptyBox.Application.Services.Shared.csproj" />
+    </ItemGroup>
+
+    <ItemGroup>
+        <PackageReference Update="Microsoft.NET.Test.Sdk" Version="17.13.0" />
+        <PackageReference Update="Microsoft.Testing.Extensions.CodeCoverage" Version="17.14.2" />
+        <PackageReference Update="Microsoft.Testing.Extensions.TrxReport" Version="1.6.3" />
+        <PackageReference Update="MSTest.Analyzers" Version="3.8.3">
+            <PrivateAssets>all</PrivateAssets>
+            <IncludeAssets>runtime; build; native; contentfiles; analyzers; buildtransitive</IncludeAssets>
+        </PackageReference>
+        <PackageReference Update="MSTest.TestAdapter" Version="3.8.3" />
+        <PackageReference Update="MSTest.TestFramework" Version="3.8.3" />
+        <PackageReference Update="Microsoft.CodeCoverage.MSBuild" Version="17.14.2" />
+        <PackageReference Update="Microsoft.Testing.Platform.MSBuild" Version="1.6.3" />
+    </ItemGroup>
+
+</Project>

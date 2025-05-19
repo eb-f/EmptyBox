@@ -1,0 +1,18 @@
+<Project>
+
+    <Import Project="../../Directory.Build.props"/>
+
+    <PropertyGroup Label="Параметры AOT-компиляции">
+        <IsAotCompatible>false</IsAotCompatible>
+    </PropertyGroup>
+
+    <PropertyGroup Label="Параметры инструментации">
+        <GenerateDocumentationFile>false</GenerateDocumentationFile>
+    </PropertyGroup>
+
+    <PropertyGroup Label="Параметры создания NuGet-пакетов">
+        <IncludeBuildOutput>false</IncludeBuildOutput>
+        <IncludeSymbols>false</IncludeSymbols>
+    </PropertyGroup>
+
+</Project>

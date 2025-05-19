@@ -1,0 +1,13 @@
+<Project>
+
+    <PropertyGroup>
+        <VersionSuffix Condition=" '$(VersionSuffixVariant)' == '$(EpsilonVersionSuffix)' ">concept</VersionSuffix>
+        <VersionSuffix Condition=" '$(VersionSuffixVariant)' == '$(AlphaVersionSuffix)' ">alpha</VersionSuffix>
+        <VersionSuffix Condition=" '$(VersionSuffixVariant)' == '$(BetaVersionSuffix)' ">beta</VersionSuffix>
+        <VersionSuffix Condition=" '$(VersionSuffixVariant)' == '$(GammaVersionSuffix)' ">prerelease</VersionSuffix>
+        <VersionSuffix Condition=" '$(VersionSuffixVariant)' == '$(RhoVersionSuffix)' "></VersionSuffix>
+        <VersionSuffix Condition=" '$(VersionSuffixVariant)' == '$(DeltaVersionSuffix)' "></VersionSuffix>
+        <InformationalVersion>$(VersionPrefix)-$(VersionSuffixVariant)</InformationalVersion>
+    </PropertyGroup>
+    
+</Project>

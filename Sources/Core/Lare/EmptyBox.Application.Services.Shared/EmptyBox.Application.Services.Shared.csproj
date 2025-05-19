@@ -1,0 +1,8 @@
+﻿<Project Sdk="Microsoft.NET.Sdk">
+    
+    <ItemGroup>
+        <ProjectReference Include="..\..\Care\EmptyBox.Generation\EmptyBox.Generation.csproj" OutputItemType="Analyzer" ReferenceOutputAssembly="false"/>
+        <ProjectReference Include="..\..\EmptyBox.Application.Services\EmptyBox.Application.Services.csproj"/>
+    </ItemGroup>
+    
+</Project>

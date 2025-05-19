@@ -1,0 +1,46 @@
+<Solution>
+  <Folder Name="/Core/">
+    <Project Path="Core/EmptyBox.Application.Services/EmptyBox.Application.Services.csproj" />
+    <Project Path="Core/EmptyBox.Construction.Machines/EmptyBox.Construction.Machines.csproj" />
+    <Project Path="Core/EmptyBox.Reflection/EmptyBox.Reflection.csproj" />
+    <Project Path="Core/EmptyBox/EmptyBox.csproj" />
+  </Folder>
+  <Folder Name="/Core/Care/">
+    <File Path="Core/Care/Directory.Build.props" />
+    <Project Path="Core/Care/EmptyBox.Generation/EmptyBox.Generation.csproj" />
+  </Folder>
+  <Folder Name="/Core/Lare/">
+    <File Path="Core/Lare/Directory.Build.props" />
+    <Project Path="Core/Lare/EmptyBox.Application.Services.Shared/EmptyBox.Application.Services.Shared.csproj" />
+  </Folder>
+  <Folder Name="/Core/Lare/Benchmarks/">
+    <Project Path="Core/Lare/Benchmarks/EmptyBox.Application.Services.Benchmarks/EmptyBox.Application.Services.Benchmarks.csproj" />
+    <Project Path="Core/Lare/Benchmarks/EmptyBox.Benchmarks.Shared/EmptyBox.Benchmarks.Shared.csproj" Id="5cc315f1-e6d4-412d-908d-07dfb3ccbed6" />
+  </Folder>
+  <Folder Name="/Core/Lare/Tests/">
+    <Project Path="Core/Lare/Tests/EmptyBox.Application.Services.Tests/EmptyBox.Application.Services.Tests.csproj" Id="ffbac87e-52d7-4c1b-81e2-04d5b79dfed9" />
+    <Project Path="Core/Lare/Tests/EmptyBox.Reflection.Tests/EmptyBox.Reflection.Tests.csproj" />
+    <Project Path="Core/Lare/Tests/EmptyBox.Tests/EmptyBox.Tests.csproj" Id="aac63e1d-c4d0-4f32-8aa6-a1f8ee076e4b" />
+  </Folder>
+  <Folder Name="/Core/Ware/">
+    <Project Path="Core/Ware/EmptyBox.SDK/EmptyBox.SDK.csproj" />
+  </Folder>
+  <Folder Name="/_.._/">
+    <File Path="Directory.Build.props" />
+    <File Path="VersionSuffixes.props" />
+    <File Path="VersionSuffixSelector.props" />
+  </Folder>
+  <Folder Name="/_.._/_.._/">
+    <File Path="../.gitattributes" />
+    <File Path="../.gitignore" />
+    <File Path="../LICENSE" />
+    <File Path="../README.md" />
+  </Folder>
+  <Folder Name="/_.._/_.._/Assets/">
+    <File Path="../Assets/PackageIcon.png" />
+  </Folder>
+  <Folder Name="/_.._/_.._/Documents/">
+    <File Path="../Documents/Contribution.md" />
+  </Folder>
+  <Project Path="EmptyBox.Sandbox/EmptyBox.Sandbox.csproj" />
+</Solution>

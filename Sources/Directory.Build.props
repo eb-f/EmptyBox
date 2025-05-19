@@ -1,0 +1,56 @@
+<Project>
+    
+    <Import Project="VersionSuffixes.props"/>
+    
+    <PropertyGroup Label="Параметры платформы">
+        <TargetFramework>net9.0</TargetFramework>
+        <DebugType>portable</DebugType>
+        <Deterministic>true</Deterministic>
+    </PropertyGroup>
+
+    <PropertyGroup Label="Параметры языка разработки">
+        <LangVersion>preview</LangVersion>
+        <Nullable>enable</Nullable>
+        <ImplicitUsings>disable</ImplicitUsings>
+    </PropertyGroup>
+
+    <PropertyGroup Label="Параметры AOT-компиляции">
+        <IsAotCompatible>true</IsAotCompatible>
+    </PropertyGroup>
+
+    <PropertyGroup Label="Параметры инструментации">
+        <GenerateDocumentationFile>true</GenerateDocumentationFile>
+    </PropertyGroup>
+
+    <PropertyGroup Label="Параметры создания NuGet-пакетов">
+        <GeneratePackageOnBuild Condition=" '$(GeneratePackageOnBuild)' == '' ">true</GeneratePackageOnBuild>
+        <IncludeSymbols>true</IncludeSymbols>
+        <SymbolsPackageFormat>snupkg</SymbolsPackageFormat>
+    </PropertyGroup>
+
+    <PropertyGroup Label="Информация о решении">
+        <Product>EmptyBox</Product>
+        <RepositoryUrl>https://github.com/eb-f/EmptyBox</RepositoryUrl>
+        <Year Condition=" '$(Year)' == '' ">$([System.DateTime]::UtcNow.Year.ToString())</Year>
+        <Authors>Сообщество EmptyBox</Authors>
+        <Copyright>© $(Year) $(Authors)</Copyright>
+    </PropertyGroup>
+
+    <PropertyGroup Label="Информация о версии">
+        <VersionPrefix Condition=" '$(VersionPrefix)' == '' ">0.0.1.0</VersionPrefix>
+        <VersionSuffixVariant Condition=" '$(VersionSuffixVariant)' == '' ">$(EpsilonVersionSuffix)</VersionSuffixVariant>
+    </PropertyGroup>
+
+    <PropertyGroup Label="Информация о NuGet-пакетах">
+        <PackageIcon>PackageIcon.png</PackageIcon>
+        <PackageLicenseExpression>MIT</PackageLicenseExpression>
+        <PackageRequireLicenseAcceptance>true</PackageRequireLicenseAcceptance>
+    </PropertyGroup>
+
+    <ItemGroup Label="Содержание NuGet-пакетов">
+        <None Include="$(SolutionDir)..\Assets\PackageIcon.png" Pack="true" PackagePath="" Visible="false"/>
+    </ItemGroup>
+    
+    <Import Project="VersionSuffixSelector.props"/>
+
+</Project>

@@ -1,0 +1,16 @@
+﻿<Project Sdk="Microsoft.NET.Sdk">
+    
+    <PropertyGroup Label="Параметры создания NuGet-пакетов">
+        <IncludeBuildOutput>false</IncludeBuildOutput>
+        <IncludeSymbols>false</IncludeSymbols>
+    </PropertyGroup>
+
+    <ItemGroup>
+        <ProjectReference Include="..\..\Care\EmptyBox.Generation\EmptyBox.Generation.csproj" />
+        <ProjectReference Include="..\..\EmptyBox.Application.Services\EmptyBox.Application.Services.csproj" />
+        <ProjectReference Include="..\..\EmptyBox.Construction.Machines\EmptyBox.Construction.Machines.csproj" />
+        <ProjectReference Include="..\..\EmptyBox.Reflection\EmptyBox.Reflection.csproj" />
+        <ProjectReference Include="..\..\EmptyBox\EmptyBox.csproj" />
+    </ItemGroup>
+
+</Project>
