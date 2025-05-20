@@ -25,7 +25,7 @@
     <PropertyGroup Label="Параметры создания NuGet-пакетов">
         <GeneratePackageOnBuild Condition=" '$(GeneratePackageOnBuild)' == '' ">true</GeneratePackageOnBuild>
         <IncludeSymbols>true</IncludeSymbols>
-        <SymbolsPackageFormat>snupkg</SymbolsPackageFormat>
+        <SymbolPackageFormat>snupkg</SymbolPackageFormat>
     </PropertyGroup>
 
     <PropertyGroup Label="Информация о решении">
