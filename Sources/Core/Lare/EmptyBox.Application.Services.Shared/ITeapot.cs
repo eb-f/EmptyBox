@@ -15,8 +15,8 @@ public partial interface ITeapot
     /// </summary>
     public readonly struct Configuration
     {
-        public readonly required double HeatingRate { get; init; }
-        public readonly double? BaseTemperature { get; init; }
+        public required double HeatingRate { get; init; }
+        public double? BaseTemperature { get; init; }
     }
 
     /// <summary>
@@ -48,10 +48,9 @@ public partial interface ITeapot
             {
                 if (value == field)
                 {
+                    field = value;
                     PropertyChanged?.Invoke(this, new PropertyChangedEventArgs(nameof(Temperature)));
                 }
-
-                field = value;
             }
         }
         public Configuration Configuration { get; set; }

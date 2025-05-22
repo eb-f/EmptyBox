@@ -78,12 +78,12 @@ public partial interface Teapot<out SQ> : ITeapot, IManageableService<SQ, ITeapo
                 // При делении на 0 и последующем преобразовании double.PositiveInfinity к типу Int32
                 // будет создано исключение System.OverflowException, что прервёт исполнение метода
                 // и приведёт к нарушению контракта
-                int intervals = checked ((int)((100 - double.Max(launched.Temperature, 100)) / launched.Configuration.HeatingRate));
+                int intervals = checked((int)((100 - double.Clamp(heatingState.Temperature, 0, 100)) / heatingState.Configuration.HeatingRate));
 
                 for (int count = 0; count < intervals; count++)
                 {
                     await Task.Delay(100, cancellationToken);
-                    heatingState.Temperature += launched.Configuration.HeatingRate;
+                    heatingState.Temperature += heatingState.Configuration.HeatingRate;
                 }
 
                 // Переключаемся в состояние "Запущено"

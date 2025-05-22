@@ -129,12 +129,12 @@ internal class NonQualifiedVirtualSyncTeapot(Configuration configuration) : ITea
                 {
                     Heating heatingState = Switch<Heating>();
 
-                    int intervals = checked((int)((100 - double.Max(launched.Temperature, 100)) / launched.Configuration.HeatingRate));
+                    int intervals = checked((int)((100 - double.Clamp(heatingState.Temperature, 0, 100)) / heatingState.Configuration.HeatingRate));
 
                     for (int count = 0; count < intervals; count++)
                     {
                         Thread.Sleep(100);
-                        heatingState.Temperature += launched.Configuration.HeatingRate;
+                        heatingState.Temperature += heatingState.Configuration.HeatingRate;
                     }
 
                     _ = Switch<Launched>();

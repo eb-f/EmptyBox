@@ -130,12 +130,12 @@ internal class NonQualifiedTeapot(Configuration configuration) : ITeapot, IState
                 {
                     Heating heatingState = Switch<Heating>();
 
-                    int intervals = checked((int)((100 - double.Max(launched.Temperature, 100)) / launched.Configuration.HeatingRate));
+                    int intervals = checked((int)((100 - double.Clamp(heatingState.Temperature, 0, 100)) / heatingState.Configuration.HeatingRate));
 
                     for (int count = 0; count < intervals; count++)
                     {
                         await Task.Delay(100, cancellationToken);
-                        heatingState.Temperature += launched.Configuration.HeatingRate;
+                        heatingState.Temperature += heatingState.Configuration.HeatingRate;
                     }
 
                     _ = Switch<Launched>();
