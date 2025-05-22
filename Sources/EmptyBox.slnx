@@ -37,6 +37,10 @@
     <File Path="../LICENSE" />
     <File Path="../README.md" />
   </Folder>
+  <Folder Name="/_.._/_.._/.github/" />
+  <Folder Name="/_.._/_.._/.github/workflows/">
+    <File Path="../.github/workflows/BuildTestPublish.yml" />
+  </Folder>
   <Folder Name="/_.._/_.._/Assets/">
     <File Path="../Assets/PackageIcon.png" />
   </Folder>

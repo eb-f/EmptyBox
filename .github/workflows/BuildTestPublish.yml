@@ -1,0 +1,60 @@
+name: Общий конвеер сборки, проверки и выгрузки
+
+on:
+  push:
+    branches: [ "main" ]
+  pull_request:
+    branches: [ "main" ]
+
+jobs:
+  build:
+  
+    runs-on: ubuntu-latest
+    defaults:
+      run:
+        shell: pwsh
+        
+    steps:
+    - name: Определение режима сборки
+      if: ${{ vars.PUBLISH_PACKAGES == 'true' }} && github.event_name == 'push'
+      run: |
+        "PUBLISH_PACKAGES=true" >> $env:GITHUB_ENV
+    
+    - name: Выгрузка репозитория
+      uses: actions/checkout@v4
+      with:
+        fetch-depth: 0
+    
+    - name: Настройка .NET
+      uses: actions/setup-dotnet@v4
+      with:
+        dotnet-version: 9.0.x
+
+    - name: Настройка GitVersion
+      uses: gittools/actions/gitversion/setup@v3.2.1
+      with:
+        versionSpec: '6.x.x'
+        
+    - name: Восстановление зависимостей
+      working-directory: ./Sources
+      run: dotnet restore
+
+    - name: Determine Version
+      id: CURRENT_VERSION
+      uses: gittools/actions/gitversion/execute@v3.2.1
+      
+    - name: Сборка
+      working-directory: ./Sources
+      run: dotnet build -c Release -p:VersionPrefix="${{ steps.CURRENT_VERSION.outputs.MajorMinorPatch }}" --no-restore
+      
+    - name: Тестирование
+      working-directory: ./Sources
+      run: dotnet test -c Release --no-build --verbosity normal
+      
+    - name: Загрузка пакетов в реестр GitHub
+      if: ${{ env.PUBLISH_PACKAGES == 'true' }}
+      run: |
+        New-Item -Name Packages -ItemType Directory
+        Get-ChildItem -Path Sources/*.nupkg -Recurse -File | Move-Item -Destination Packages
+        Get-ChildItem -Path Sources/*.snupkg -Recurse -File | Move-Item -Destination Packages
+        dotnet nuget push Packages/*.nupkg --skip-duplicate -k ${{ secrets.GITHUB_TOKEN }} -s https://nuget.pkg.github.com/${{ github.repository_owner }}/index.json
