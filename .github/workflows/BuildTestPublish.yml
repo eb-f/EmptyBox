@@ -1,4 +1,4 @@
-name: Общий конвеер сборки, проверки и выгрузки
+п»їname: РћР±С‰РёР№ РєРѕРЅРІРµРµСЂ СЃР±РѕСЂРєРё, РїСЂРѕРІРµСЂРєРё Рё РІС‹РіСЂСѓР·РєРё
 
 on:
   push:
@@ -15,27 +15,27 @@ jobs:
         shell: pwsh
         
     steps:
-    - name: Определение режима сборки
+    - name: РћРїСЂРµРґРµР»РµРЅРёРµ СЂРµР¶РёРјР° СЃР±РѕСЂРєРё
       if: ${{ vars.PUBLISH_PACKAGES == 'true' }} && github.event_name == 'push'
       run: |
         "PUBLISH_PACKAGES=true" >> $env:GITHUB_ENV
     
-    - name: Выгрузка репозитория
+    - name: Р’С‹РіСЂСѓР·РєР° СЂРµРїРѕР·РёС‚РѕСЂРёСЏ
       uses: actions/checkout@v4
       with:
         fetch-depth: 0
     
-    - name: Настройка .NET
+    - name: РќР°СЃС‚СЂРѕР№РєР° .NET
       uses: actions/setup-dotnet@v4
       with:
         dotnet-version: 9.0.x
 
-    - name: Настройка GitVersion
+    - name: РќР°СЃС‚СЂРѕР№РєР° GitVersion
       uses: gittools/actions/gitversion/setup@v3.2.1
       with:
         versionSpec: '6.x.x'
         
-    - name: Восстановление зависимостей
+    - name: Р’РѕСЃСЃС‚Р°РЅРѕРІР»РµРЅРёРµ Р·Р°РІРёСЃРёРјРѕСЃС‚РµР№
       working-directory: ./Sources
       run: dotnet restore
 
@@ -43,15 +43,15 @@ jobs:
       id: CURRENT_VERSION
       uses: gittools/actions/gitversion/execute@v3.2.1
       
-    - name: Сборка
+    - name: РЎР±РѕСЂРєР°
       working-directory: ./Sources
       run: dotnet build -c Release -p:VersionPrefix="${{ steps.CURRENT_VERSION.outputs.MajorMinorPatch }}" --no-restore
       
-    - name: Тестирование
+    - name: РўРµСЃС‚РёСЂРѕРІР°РЅРёРµ
       working-directory: ./Sources
       run: dotnet test -c Release --no-build --verbosity normal
       
-    - name: Загрузка пакетов в реестр GitHub
+    - name: Р—Р°РіСЂСѓР·РєР° РїР°РєРµС‚РѕРІ РІ СЂРµРµСЃС‚СЂ GitHub
       if: ${{ env.PUBLISH_PACKAGES == 'true' }}
       run: |
         New-Item -Name Packages -ItemType Directory
