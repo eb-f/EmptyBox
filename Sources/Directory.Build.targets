@@ -1,0 +1,7 @@
+<Project>
+    
+    <PropertyGroup Label="Информация о решении">
+        <Description Condition=" '$(Description)' == '' ">Библиотека фреймворка EmptyBox</Description>
+    </PropertyGroup>
+
+</Project>

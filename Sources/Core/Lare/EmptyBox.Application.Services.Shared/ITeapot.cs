@@ -76,5 +76,5 @@ public partial interface ITeapot
     ///     Указание атрибута <see cref="StateAttribute"/> приводит к генерации класса <see cref="RequireMaintenance"/> - реализации данного контракта.
     /// </remarks>
     [State]
-    public interface IRequireMaintenance : ILaunched; 
+    public interface IRequireMaintenance : ILaunched;
 }

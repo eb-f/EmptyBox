@@ -27,6 +27,7 @@
   </Folder>
   <Folder Name="/_.._/">
     <File Path="Directory.Build.props" />
+    <File Path="Directory.Build.targets" />
     <File Path="VersionSuffixes.props" />
     <File Path="VersionSuffixSelector.props" />
   </Folder>

@@ -1,9 +1,18 @@
 ﻿<Project Sdk="Microsoft.NET.Sdk">
+
+    <PropertyGroup>
+        <Description>Набор библиотек EmptyBox для воплощения квалифицированного подхода к разработке.</Description>
+    </PropertyGroup>
     
     <PropertyGroup Label="Параметры создания NuGet-пакетов">
         <IncludeBuildOutput>false</IncludeBuildOutput>
         <IncludeSymbols>false</IncludeSymbols>
+        <PackageReadmeFile>README.md</PackageReadmeFile>
     </PropertyGroup>
+    
+    <ItemGroup>
+        <Content Include="README.md" Pack="true" PackagePath="\"/>
+    </ItemGroup>
 
     <ItemGroup>
         <ProjectReference Include="..\..\Care\EmptyBox.Generation\EmptyBox.Generation.csproj" />

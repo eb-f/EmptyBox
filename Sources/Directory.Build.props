@@ -43,6 +43,7 @@
 
     <PropertyGroup Label="Информация о NuGet-пакетах">
         <PackageIcon>PackageIcon.png</PackageIcon>
+        <PackageProjectUrl>https://github.com/eb-f</PackageProjectUrl>
         <PackageLicenseExpression>MIT</PackageLicenseExpression>
         <PackageRequireLicenseAcceptance>true</PackageRequireLicenseAcceptance>
     </PropertyGroup>
