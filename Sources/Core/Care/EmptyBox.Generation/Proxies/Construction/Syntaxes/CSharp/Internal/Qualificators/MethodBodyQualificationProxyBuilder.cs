@@ -62,6 +62,14 @@ internal sealed class MethodBodyQualificationProxyBuilder : MethodBodyProxyBuild
                     TypeTransformation = context.SwitchedTypeWriterOptions.Transformation
                 };
             }
+            else if (context.Report.Target.Symbol.ReturnsVoid)
+            {
+                exceptionContext = exceptionContext with
+                {
+                    TypePresentation = context.OriginTypeWriterOptions.Presentation,
+                    TypeTransformation = context.OriginTypeWriterOptions.Transformation
+                };
+            }
             else
             {
                 exceptionContext = exceptionContext with
