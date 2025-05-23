@@ -1,8 +1,10 @@
-﻿namespace EmptyBox.Sandbox;
+﻿using System.Threading.Tasks;
+
+namespace EmptyBox.Sandbox;
 
 internal class Program
 {
-    private static void Main(string[] args)
+    private static async Task Main(string[] args)
     {
 
     }

@@ -17,4 +17,12 @@
         <GeneratePackageOnBuild>false</GeneratePackageOnBuild>
     </PropertyGroup>
 
+    <ItemGroup>
+      <ProjectReference Include="..\Core\Care\EmptyBox.Generation\EmptyBox.Generation.csproj" OutputItemType="Analyzer" ReferenceOutputAssembly="false" />
+      <ProjectReference Include="..\Core\EmptyBox.Application.Services\EmptyBox.Application.Services.csproj" />
+      <ProjectReference Include="..\Core\EmptyBox.Construction.Machines\EmptyBox.Construction.Machines.csproj" />
+      <ProjectReference Include="..\Core\EmptyBox.Reflection\EmptyBox.Reflection.csproj" />
+      <ProjectReference Include="..\Core\EmptyBox\EmptyBox.csproj" />
+    </ItemGroup>
+    
 </Project>
