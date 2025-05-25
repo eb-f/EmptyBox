@@ -36,7 +36,7 @@ public partial class ProxyGenerator : IIncrementalGenerator
                 firstLocation = null;
             }
 
-            productionContext.ReportDiagnostic(Diagnostic.Create(DescriptorsCache.Descriptors[record.Identifier], firstLocation, locations, record.Arguments.ToArray()));
+            productionContext.ReportDiagnostic(Diagnostic.Create(DescriptorsCache.Descriptors[record.Identifier], firstLocation, locations, record.Arguments.IsDefaultOrEmpty ? [] : record.Arguments.ToArray()));
         }
     }
 
