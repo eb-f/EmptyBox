@@ -52,7 +52,7 @@ EmptyBox - фреймворк для разработки приложений �
     </PropertyGroup>
 
     <ItemGroup>
-        <PackageReference Include="EmptyBox.SDK" Version="0.0.1-concept" /> <!--Достаточно добавить данную строку-->
+        <PackageReference Include="EmptyBox.SDK" Version="0.0.1.1-concept" /> <!--Достаточно добавить данную строку-->
     </ItemGroup>
     
 </Project>
