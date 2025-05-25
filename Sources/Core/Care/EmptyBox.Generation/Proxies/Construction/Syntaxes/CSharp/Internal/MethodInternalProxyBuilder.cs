@@ -1,5 +1,6 @@
 ﻿using EmptyBox.Generation.Proxies.Construction.Syntaxes.CSharp.Internal;
 using EmptyBox.Generation.Proxies.Construction.Syntaxes.CSharp.Internal.Qualificators;
+using EmptyBox.Generation.Writers;
 using EmptyBox.Generation.Writers.CSharp;
 
 using Microsoft.CodeAnalysis;
@@ -87,13 +88,18 @@ internal sealed partial class MethodInternalProxyBuilder : MethodProxyBuilder
                 ReturnParameterTransformation = context.Report.ServiceReport.HasValue
                                               ? switchedTypeOptions.Transformation
                                               : null,
-                TypeParameterSubstitution = (writer, _, options) => writer.AppendTypeArguments(context.Report.InternalProxyMethodTypeParameters, options)
+                TypeParameterSubstitution = (writer, _, options) => writer.AppendTypeArguments(context.Report.InternalProxyMethodTypeParameters, options with { Style = WriterPresentationStyle.Installation })
             },
             TypePresentation = originTypeOptions.Presentation,
             TypeTransformation = originTypeOptions.Transformation
         });
 
         writer.AppendLine();
+
+        using (var constraintScope = writer.AppendScope(ScopeBracketFraming.None, ScopeParameters.NoIndent | ScopeParameters.Deferred))
+        {
+            writer.AppendTypeParameterConstraints(context.Report.InternalProxyMethodTypeParameters, options: originTypeOptions);
+        }
 
         using (var bodyScope = writer.AppendScope())
         {

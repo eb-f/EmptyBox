@@ -69,13 +69,18 @@ internal sealed class MethodExternalProxyBuilder : MethodProxyBuilder
                 ReturnParameterTransformation = context.Report.ServiceReport.HasValue
                                               ? switchedTypeOptions.Transformation
                                               : null,
-                TypeParameterSubstitution = (writer, _, options) => writer.AppendTypeArguments(context.Report.ExternalProxyMethodTypeParameters, options)
+                TypeParameterSubstitution = (writer, _, options) => writer.AppendTypeArguments(context.Report.ExternalProxyMethodTypeParameters, options with { Style = WriterPresentationStyle.Installation })
             },
             TypePresentation = originTypeOptions.Presentation,
             TypeTransformation = originTypeOptions.Transformation
         });
 
         writer.AppendLine();
+
+        using (var constraintScope = writer.AppendScope(ScopeBracketFraming.None, ScopeParameters.NoIndent | ScopeParameters.Deferred))
+        {
+            writer.AppendTypeParameterConstraints(context.Report.ExternalProxyMethodTypeParameters, options: originTypeOptions);
+        }
 
         using (var bodyScope = writer.AppendScope(ScopeBracketFraming.None))
         {
