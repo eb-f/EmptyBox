@@ -1,13 +1,27 @@
-﻿name: Общий конвеер сборки, проверки и выгрузки
+name: Общий конвеер сборки, проверки и выгрузки
 
 on:
   push:
     branches: [ "main" ]
   pull_request:
     branches: [ "main" ]
+  workflow_dispatch:
+
+permissions:
+  contents: read
+  pages: write
+  packages: write
+  id-token: write
+
+concurrency:
+  group: "pages"
+  cancel-in-progress: false
 
 jobs:
-  build:
+  BuidTestPublish:
+    environment:
+      name: github-pages
+      url: ${{ steps.deployment.outputs.page_url }}
   
     runs-on: ubuntu-latest
     defaults:
@@ -18,17 +32,17 @@ jobs:
     - name: Определение режима сборки
       if: ${{ vars.PUBLISH_PACKAGES == 'true' }} && github.event_name == 'push'
       run: |
-        "PUBLISH_PACKAGES=true" >> $env:GITHUB_ENV
+        "PUBLISH=true" >> $env:GITHUB_ENV
     
-    - name: Выгрузка репозитория
+    - name: Загрузка репозитория
       uses: actions/checkout@v4
       with:
         fetch-depth: 0
     
-    - name: Настройка .NET
+    - name: Установка .NET
       uses: actions/setup-dotnet@v4
       with:
-        dotnet-version: 9.0.x
+        dotnet-version: 9.x
         
     - name: Восстановление зависимостей
       run: dotnet restore
@@ -39,10 +53,34 @@ jobs:
     - name: Тестирование
       run: dotnet test -c Release --no-build --verbosity normal
       
-    - name: Загрузка пакетов в реестр GitHub
-      if: ${{ env.PUBLISH_PACKAGES == 'true' }}
+    - name: Выгрузка пакетов в реестр GitHub
+      if: ${{ env.PUBLISH == 'true' }}
       run: |
         New-Item -Name Packages -ItemType Directory
         Get-ChildItem -Path Sources/*.nupkg -Recurse -File | Move-Item -Destination Packages
         Get-ChildItem -Path Sources/*.snupkg -Recurse -File | Move-Item -Destination Packages
         dotnet nuget push Packages/*.nupkg --skip-duplicate -k ${{ secrets.GITHUB_TOKEN }} -s https://nuget.pkg.github.com/${{ github.repository_owner }}/index.json
+
+    - name: Установка DocFX
+      if: ${{ env.PUBLISH == 'true' }}
+      run: dotnet tool update -g docfx
+
+    - name: Сборка страниц
+      if: ${{ env.PUBLISH == 'true' }}
+      working-directory: Documents/Generation/API
+      run: docfx docfx.json
+      
+    - name: Настройка
+      if: ${{ env.PUBLISH == 'true' }}
+      uses: actions/configure-pages@v5
+  
+    - name: Выгрузка страниц
+      if: ${{ env.PUBLISH == 'true' }}
+      uses: actions/upload-pages-artifact@v3
+      with:
+        path: 'Documents/Generation/API/_site'
+
+    - name: Публикация страниц
+      if: ${{ env.PUBLISH == 'true' }}
+      id: deployment
+      uses: actions/deploy-pages@v4

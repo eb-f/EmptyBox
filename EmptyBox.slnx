@@ -49,4 +49,10 @@
   <Folder Name="/Documents/">
     <File Path="Documents/Contribution.md" />
   </Folder>
+  <Folder Name="/Documents/Generation/" />
+  <Folder Name="/Documents/Generation/API/">
+    <File Path="Documents/Generation/API/docfx.json" />
+    <File Path="Documents/Generation/API/index.md" />
+    <File Path="Documents/Generation/API/toc.yml" />
+  </Folder>
 </Solution>

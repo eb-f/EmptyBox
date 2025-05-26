@@ -1,10 +1,16 @@
-﻿[*]
+[*]
 
 charset = utf-8
 spelling_languages = ru-ru,en-us
+end_of_line = crlf
+
+[*.{cs,vb,xml,csproj,vbproj,props}]
 tab_width = 4
 indent_size = 4
-end_of_line = crlf
+
+[*.{json,yml,yaml}]
+tab_width = 2
+indent_size = 2
 
 [*.{cs,vb}]
 

@@ -402,3 +402,7 @@ FodyWeavers.xsd
 
 # Результаты генерации шаблонов T4
 *.tt.cs
+
+# Результаты генерации документации
+Documents/Generation/API/_site/*
+Documents/Generation/API/api/*
