@@ -61,6 +61,18 @@ public interface IException
         }
     }
 
+    /// <summary>
+    ///     Создаёт и выбрасывает исключение <typeparamref name="E"/>.
+    /// </summary>
+    /// <typeparam name="E">
+    ///     Представление исключительной ситуации.
+    /// </typeparam>
+    /// <param name="message">
+    ///     Пояснительное сообщение.
+    /// </param>
+    /// <param name="innerException">
+    ///     Исключительная ситуация, предшествующая данной.
+    /// </param>
     [StackTraceHidden, DebuggerHidden]
     [DoesNotReturn]
     public static void Throw<E>(string? message = default, Exception? innerException = null)
@@ -72,6 +84,21 @@ public interface IException
         throw exception;
     }
 
+    /// <summary>
+    ///     Создаёт и выбрасывает исключение <typeparamref name="E"/>.
+    /// </summary>
+    /// <typeparam name="E">
+    ///     Представление исключительной ситуации.
+    /// </typeparam>
+    /// <param name="message">
+    ///     Пояснительное сообщение.
+    /// </param>
+    /// <param name="innerException">
+    ///     Исключительная ситуация, предшествующая данной.
+    /// </param>
+    /// <param name="parameterName">
+    ///     Имя параметра, значение которого стало поводом для возникновения исключительной ситуации.
+    /// </param>
     [StackTraceHidden, DebuggerHidden]
     [DoesNotReturn]
     public static void Throw<E>(string? message = default, Exception? innerException = null, string? parameterName = null)
@@ -83,6 +110,18 @@ public interface IException
         throw exception;
     }
 
+    /// <summary>
+    ///     Выбрасывает исключение <typeparamref name="E"/>.
+    /// </summary>
+    /// <typeparam name="E">
+    ///     Представление исключительной ситуации.
+    /// </typeparam>
+    /// <typeparam name="R">
+    ///     Представление возвращаемого значения функцией.
+    /// </typeparam>
+    /// <param name="exception">
+    ///     Экземпляр исключения.
+    /// </param>
     [StackTraceHidden, DebuggerHidden]
     [DoesNotReturn]
     public static void Throw<E>(E exception)
@@ -91,6 +130,31 @@ public interface IException
         throw exception;
     }
 
+    /// <summary>
+    ///     Создаёт и выбрасывает исключение <typeparamref name="E"/>.
+    /// </summary>
+    /// <typeparam name="E">
+    ///     Представление исключительной ситуации.
+    /// </typeparam>
+    /// <typeparam name="R">
+    ///     Представление возвращаемого значения функцией.
+    /// </typeparam>
+    /// <param name="message">
+    ///     Пояснительное сообщение.
+    /// </param>
+    /// <param name="innerException">
+    ///     Исключительная ситуация, предшествующая данной.
+    /// </param>
+    /// <returns>
+    ///     Выполнение метода завершается ошибкой.
+    /// </returns>
+    /// <remarks>
+    ///     Данный метод предназначен для использования:
+    ///     <list type="bullet">
+    ///         <item>в функциях, совместно с лексемами <see langword="return"/> и <see langword="=>"/>;</item>
+    ///         <item>в операторах <see langword="switch"/>, <see langword="??"/>, <see langword="? :"/>.</item>
+    ///     </list>
+    /// </remarks>
     [StackTraceHidden, DebuggerHidden]
     [DoesNotReturn]
     public static R Throw<E, R>(string? message = default, Exception? innerException = null)
@@ -103,6 +167,34 @@ public interface IException
         throw exception;
     }
 
+    /// <summary>
+    ///     Создаёт и выбрасывает исключение <typeparamref name="E"/>.
+    /// </summary>
+    /// <typeparam name="E">
+    ///     Представление исключительной ситуации.
+    /// </typeparam>
+    /// <typeparam name="R">
+    ///     Представление возвращаемого значения функцией.
+    /// </typeparam>
+    /// <param name="message">
+    ///     Пояснительное сообщение.
+    /// </param>
+    /// <param name="innerException">
+    ///     Исключительная ситуация, предшествующая данной.
+    /// </param>
+    /// <param name="parameterName">
+    ///     Имя параметра, значение которого стало поводом для возникновения исключительной ситуации.
+    /// </param>
+    /// <returns>
+    ///     Выполнение метода завершается ошибкой.
+    /// </returns>
+    /// <remarks>
+    ///     Данный метод предназначен для использования:
+    ///     <list type="bullet">
+    ///         <item>в функциях, совместно с лексемами <see langword="return"/> и <see langword="=>"/>;</item>
+    ///         <item>в операторах <see langword="switch"/>, <see langword="??"/>, <see langword="? :"/>.</item>
+    ///     </list>
+    /// </remarks>
     [StackTraceHidden, DebuggerHidden]
     [DoesNotReturn]
     public static R Throw<E, R>(string? message = default, Exception? innerException = null, string? parameterName = null)
@@ -115,6 +207,28 @@ public interface IException
         throw exception;
     }
 
+    /// <summary>
+    ///     Выбрасывает исключение <typeparamref name="E"/>.
+    /// </summary>
+    /// <typeparam name="E">
+    ///     Представление исключительной ситуации.
+    /// </typeparam>
+    /// <typeparam name="R">
+    ///     Представление возвращаемого значения функцией.
+    /// </typeparam>
+    /// <param name="exception">
+    ///     Экземпляр исключения.
+    /// </param>
+    /// <returns>
+    ///     Выполнение метода завершается ошибкой.
+    /// </returns>
+    /// <remarks>
+    ///     Данный метод предназначен для использования:
+    ///     <list type="bullet">
+    ///         <item>в функциях, совместно с лексемами <see langword="return"/> и <see langword="=>"/>;</item>
+    ///         <item>в операторах <see langword="switch"/>, <see langword="??"/>, <see langword="? :"/>.</item>
+    ///     </list>
+    /// </remarks>
     [StackTraceHidden, DebuggerHidden]
     [DoesNotReturn]
     public static R Throw<E, R>(E exception)
@@ -124,6 +238,31 @@ public interface IException
         throw exception;
     }
 
+
+    /// <summary>
+    ///     Создаёт и выбрасывает исключение <typeparamref name="E"/>.
+    /// </summary>
+    /// <typeparam name="E">
+    ///     Представление исключительной ситуации.
+    /// </typeparam>
+    /// <typeparam name="R">
+    ///     Представление возвращаемого значения функцией.
+    /// </typeparam>
+    /// <param name="message">
+    ///     Пояснительное сообщение.
+    /// </param>
+    /// <param name="innerException">
+    ///     Исключительная ситуация, предшествующая данной.
+    /// </param>
+    /// <returns>
+    ///     Выполнение метода завершается ошибкой.
+    /// </returns>
+    /// <remarks>
+    ///     Данный метод предназначен для использования:
+    ///     <list type="bullet">
+    ///         <item>в функциях, совместно с лексемами <see langword="return ref"/> и <see langword="=> ref"/>.</item>
+    ///     </list>
+    /// </remarks>
     [StackTraceHidden, DebuggerHidden]
     [DoesNotReturn]
     public static ref R ThrowRef<E, R>(string? message = default, Exception? innerException = null)
@@ -136,6 +275,33 @@ public interface IException
         throw exception;
     }
 
+    /// <summary>
+    ///     Создаёт и выбрасывает исключение <typeparamref name="E"/>.
+    /// </summary>
+    /// <typeparam name="E">
+    ///     Представление исключительной ситуации.
+    /// </typeparam>
+    /// <typeparam name="R">
+    ///     Представление возвращаемого значения функцией.
+    /// </typeparam>
+    /// <param name="message">
+    ///     Пояснительное сообщение.
+    /// </param>
+    /// <param name="innerException">
+    ///     Исключительная ситуация, предшествующая данной.
+    /// </param>
+    /// <param name="parameterName">
+    ///     Имя параметра, значение которого стало поводом для возникновения исключительной ситуации.
+    /// </param>
+    /// <returns>
+    ///     Выполнение метода завершается ошибкой.
+    /// </returns>
+    /// <remarks>
+    ///     Данный метод предназначен для использования:
+    ///     <list type="bullet">
+    ///         <item>в функциях, совместно с лексемами <see langword="return ref"/> и <see langword="=> ref"/>.</item>
+    ///     </list>
+    /// </remarks>
     [StackTraceHidden, DebuggerHidden]
     [DoesNotReturn]
     public static ref R ThrowRef<E, R>(string? message = default, Exception? innerException = null, string? parameterName = null)
@@ -148,6 +314,27 @@ public interface IException
         throw exception;
     }
 
+    /// <summary>
+    ///     Выбрасывает исключение <typeparamref name="E"/>.
+    /// </summary>
+    /// <typeparam name="E">
+    ///     Представление исключительной ситуации.
+    /// </typeparam>
+    /// <typeparam name="R">
+    ///     Представление возвращаемого значения функцией.
+    /// </typeparam>
+    /// <param name="exception">
+    ///     Экземпляр исключения.
+    /// </param>
+    /// <returns>
+    ///     Выполнение метода завершается ошибкой.
+    /// </returns>
+    /// <remarks>
+    ///     Данный метод предназначен для использования:
+    ///     <list type="bullet">
+    ///         <item>в функциях, совместно с лексемами <see langword="return ref"/> и <see langword="=> ref"/>.</item>
+    ///     </list>
+    /// </remarks>
     [StackTraceHidden, DebuggerHidden]
     [DoesNotReturn]
     public static ref R ThrowRef<E, R>(E exception)

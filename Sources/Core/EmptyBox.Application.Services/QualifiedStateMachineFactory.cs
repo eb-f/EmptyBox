@@ -24,6 +24,7 @@ public sealed class QualifiedStateMachineFactory : IServiceFactory<IStateMachine
         return (S)(object)new QualifiedStateMachine<S>();
     }
 
+    /// <inheritdoc cref="IServiceFactory{M}.Initialize{S}(out S)"/>
     [RequiresDynamicCode("Конструирование машины состояний.")]
     public QualifiedStateMachine<S> Initialize<[DynamicallyAccessedMembers(QualifiedStateMachine<S>.DynamicallyAccessedMembers)] S>(out S service)
         where S : class, IService<SI>
