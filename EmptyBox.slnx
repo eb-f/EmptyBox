@@ -1,0 +1,52 @@
+<Solution>
+  <Folder Name="/Sources/Core/">
+    <Project Path="Sources/Core/EmptyBox.Application.Services/EmptyBox.Application.Services.csproj" />
+    <Project Path="Sources/Core/EmptyBox.Construction.Machines/EmptyBox.Construction.Machines.csproj" />
+    <Project Path="Sources/Core/EmptyBox.Reflection/EmptyBox.Reflection.csproj" />
+    <Project Path="Sources/Core/EmptyBox/EmptyBox.csproj" />
+  </Folder>
+  <Folder Name="/Sources/Core/Care/">
+    <File Path="Sources/Core/Care/Directory.Build.props" />
+    <Project Path="Sources/Core/Care/EmptyBox.Generation/EmptyBox.Generation.csproj" />
+  </Folder>
+  <Folder Name="/Sources/Core/Lare/">
+    <File Path="Sources/Core/Lare/Directory.Build.props" />
+    <Project Path="Sources/Core/Lare/EmptyBox.Application.Services.Shared/EmptyBox.Application.Services.Shared.csproj" />
+  </Folder>
+  <Folder Name="/Sources/Core/Lare/Benchmarks/">
+    <Project Path="Sources/Core/Lare/Benchmarks/EmptyBox.Application.Services.Benchmarks/EmptyBox.Application.Services.Benchmarks.csproj" />
+    <Project Path="Sources/Core/Lare/Benchmarks/EmptyBox.Benchmarks.Shared/EmptyBox.Benchmarks.Shared.csproj" Id="5cc315f1-e6d4-412d-908d-07dfb3ccbed6" />
+  </Folder>
+  <Folder Name="/Sources/Core/Lare/Tests/">
+    <Project Path="Sources/Core/Lare/Tests/EmptyBox.Application.Services.Tests/EmptyBox.Application.Services.Tests.csproj" Id="ffbac87e-52d7-4c1b-81e2-04d5b79dfed9" />
+    <Project Path="Sources/Core/Lare/Tests/EmptyBox.Reflection.Tests/EmptyBox.Reflection.Tests.csproj" />
+    <Project Path="Sources/Core/Lare/Tests/EmptyBox.Tests/EmptyBox.Tests.csproj" Id="aac63e1d-c4d0-4f32-8aa6-a1f8ee076e4b" />
+  </Folder>
+  <Folder Name="/Sources/Core/Ware/">
+    <Project Path="Sources/Core/Ware/EmptyBox.SDK/EmptyBox.SDK.csproj" />
+  </Folder>
+  <Folder Name="/Sources/">
+    <File Path="Sources/Directory.Build.props" />
+    <File Path="Sources/Directory.Build.targets" />
+    <File Path="Sources/VersionSuffixes.props" />
+    <File Path="Sources/VersionSuffixSelector.props" />
+    <Project Path="Sources/EmptyBox.Sandbox/EmptyBox.Sandbox.csproj" />
+  </Folder>
+  <Folder Name="/_.._/">
+    <File Path=".editorconfig" />
+    <File Path=".gitattributes" />
+    <File Path=".gitignore" />
+    <File Path="LICENSE" />
+    <File Path="README.md" />
+  </Folder>
+  <Folder Name="/.github/" />
+  <Folder Name="/.github/workflows/">
+    <File Path=".github/workflows/BuildTestPublish.yml" />
+  </Folder>
+  <Folder Name="/Assets/">
+    <File Path="Assets/PackageIcon.png" />
+  </Folder>
+  <Folder Name="/Documents/">
+    <File Path="Documents/Contribution.md" />
+  </Folder>
+</Solution>
