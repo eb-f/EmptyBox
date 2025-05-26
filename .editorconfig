@@ -1,5 +1,6 @@
-﻿[*.{cs,vb,md,xml,csproj,vbproj,props}]
+﻿[*]
 
+charset = utf-8
 spelling_languages = ru-ru,en-us
 tab_width = 4
 indent_size = 4
