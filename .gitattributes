@@ -1,4 +1,4 @@
 LICENSE filter=assume-unchanged
 
-# Проект EmptyBox.Sandbox предназначен только для локального тестирования в среде разработки.
+# РџСЂРѕРµРєС‚ EmptyBox.Sandbox РїСЂРµРґРЅР°Р·РЅР°С‡РµРЅ С‚РѕР»СЊРєРѕ РґР»СЏ Р»РѕРєР°Р»СЊРЅРѕРіРѕ С‚РµСЃС‚РёСЂРѕРІР°РЅРёСЏ РІ СЃСЂРµРґРµ СЂР°Р·СЂР°Р±РѕС‚РєРё.
 Sources/EmptyBox.Sandbox/* filter=assume-unchanged
