@@ -49,7 +49,7 @@
     </PropertyGroup>
 
     <ItemGroup Label="Содержание NuGet-пакетов">
-        <None Include="$(SolutionDir)..\Assets\PackageIcon.png" Pack="true" PackagePath="" Visible="false"/>
+        <None Include="$(SolutionDir)Assets\PackageIcon.png" Pack="true" PackagePath="" Visible="false"/>
     </ItemGroup>
     
     <Import Project="VersionSuffixSelector.props"/>

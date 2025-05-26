@@ -31,15 +31,12 @@ jobs:
         dotnet-version: 9.0.x
         
     - name: Восстановление зависимостей
-      working-directory: ./Sources
       run: dotnet restore
       
     - name: Сборка
-      working-directory: ./Sources
       run: dotnet build -c Release --no-restore
       
     - name: Тестирование
-      working-directory: ./Sources
       run: dotnet test -c Release --no-build --verbosity normal
       
     - name: Загрузка пакетов в реестр GitHub
